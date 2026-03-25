@@ -167,7 +167,7 @@ class QueueVisualizer:
 
         left_frame = tk.LabelFrame(
             top_frame,
-            text=f"팀 CSV 정보 ({self.csv_filename}, 전은빈 제외)",
+            text=f"팀 CSV 정보 ({self.csv_filename})",
             font=("맑은 고딕", 13, "bold"),
             bg="white",
             padx=10,
