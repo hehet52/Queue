@@ -1,0 +1,71 @@
+#include <iostream>
+#include <queue>
+#include <string>
+
+using namespace std;
+
+class CafeMuSalt {
+private:
+    queue<string> q;
+    const int MAX_SIZE = 10;
+
+public:
+    CafeMuSalt() {
+        cout << "[System] 카페무솔트 큐가 생성되었습니다." << endl;
+    }
+
+    void enqueue(string menu) {
+        if (q.size() < MAX_SIZE) {
+            q.push(menu);
+            cout << "카페무솔트.enqueue(\"" << menu << "\")" << endl;
+        } else {
+            cout << "[Error] 큐가 가득 찼습니다!" << endl;
+        }
+    }
+
+    void dequeue() {
+        if (!q.empty()) {
+            cout << "카페무솔트.dequeue() -> " << q.front() << " 서빙 완료" << endl;
+            q.pop();
+        }
+    }
+
+    void front() {
+        if (!q.empty()) {
+            cout << "카페무솔트.front() -> 현재 1순위: " << q.front() << endl;
+        }
+    }
+
+    bool isEmpty() {
+        bool emptyStatus = q.empty();
+        cout << "카페무솔트.isEmpty() -> " << (emptyStatus ? "true" : "false") << endl;
+        return emptyStatus;
+    }
+
+    void clear() {
+        while (!q.empty()) q.pop();
+        cout << "카페무솔트.clear() -> 모든 주문 삭제 완료" << endl;
+    }
+};
+
+int main() {
+    CafeMuSalt 카페무솔트;
+
+    카페무솔트.isEmpty();
+    카페무솔트.enqueue("말차라떼");
+    카페무솔트.enqueue("청포도에이드");
+    카페무솔트.enqueue("피넛라떼");
+    카페무솔트.enqueue("스콘");
+    카페무솔트.enqueue("카페라떼");
+    카페무솔트.enqueue("카페모카");
+    카페무솔트.enqueue("초코휘낭시에");
+
+    카페무솔트.front();
+    카페무솔트.dequeue();
+    카페무솔트.isEmpty();
+    
+    카페무솔트.clear();
+    카페무솔트.isEmpty();
+
+    return 0;
+}
